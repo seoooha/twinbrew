@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "live-server": "git+https://github.com/tapio/live-server.git#ad22544"
+  }
+}

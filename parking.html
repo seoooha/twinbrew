@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Meta Pixel Code_v2 -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '735136227831134');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=735136227831134&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code_v2 -->
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=793e097657cd6ee25929b1cf5066f10e"></script>
+
+<!-- End Meta Pixel Code -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@700&family=Noto+Serif+KR&family=Open+Sans&display=swap" rel="stylesheet">
+    <title>자연눈썹, 수지눈썹, 속눈썹펌 전문</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        body{
+            /*background-image: url('https://assets.socialclub.co.kr/v2/165968767492106867720564019029.jpeg');*/
+            background-color: white;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+
+        }
+
+        div img {
+            border-radius: 100px;
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            /*border: 1px solid #FFC4B2;*/
+        }
+
+        h3{
+            font-family: 'Noto Serif KR', serif;
+            color : #585C5B
+        }
+
+        h5 {
+            font-family: 'Open Sans', sans-serif;
+            color : #585C5B
+        }
+
+        .btn{
+            width: 80%;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            text-decoration: none;
+            color: #331D05;
+            background-color: #FFD4CE;
+            padding: 15px 20px;
+            margin: 10px;
+            font-family: 'IBM Plex Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="https://assets.socialclub.co.kr/v2/165969046501206756185626173155.jpeg" onclick="location.href='/'"/>
+    <h3>자연눈썹, 수지눈썹, 속눈썹펌 전문</h3>
+    <h5>@twin_brow1</h5>
+    <h5>🤎 트윈 브로우 주차장 안내 🤎</h5>
+    <div id="map" style="width:90%;height:350px;margin:0 auto;"></div>
+    <h5>
+        주소: 부산광역시 부산진구 중앙대로691번가길 14-11</br>
+        (부산광역시 부산진구 부전동 519-25)</br></br>
+        삼한 주차장 이용 시</br>
+        눈썹 2시간(리터치 1시간),</br>
+        속눈썹펌 1시간 지원해드립니다^^</br>
+    </h5>
+    <button onclick="moveKakao()" class="btn">문의/상담 바로가기</button>
+</div>
+</body>
+<script>
+    function moveKakao(){
+        fbq('trackCustom', 'ClickKaKao', {promotion: 'click_kakao'});
+        location.href = 'https://pf.kakao.com/_kXHLxb';
+    }
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(35.1550659,129.0565055), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 지도를 클릭한 위치에 표출할 마커입니다
+    var marker = new kakao.maps.Marker({
+        // 지도 중심좌표에 마커를 생성합니다
+        position: map.getCenter()
+    });
+    // 지도에 마커를 표시합니다
+    marker.setMap(map);
+
+    // 지도에 클릭 이벤트를 등록합니다
+    // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+
+        // 클릭한 위도, 경도 정보를 가져옵니다
+        var latlng = mouseEvent.latLng;
+
+        // 마커 위치를 클릭한 위치로 옮깁니다
+        marker.setPosition(latlng);
+
+        var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+        message += '경도는 ' + latlng.getLng() + ' 입니다';
+
+        var resultDiv = document.getElementById('clickLatlng');
+        resultDiv.innerHTML = message;
+
+    });
+
+</script>
+</html>
